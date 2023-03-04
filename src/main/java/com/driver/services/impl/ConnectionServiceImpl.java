@@ -27,7 +27,7 @@ public class ConnectionServiceImpl implements ConnectionService {
         if(user.getMaskedIp()!=null){
             throw new Exception("Already connected");
         }
-        else if(countryName.equals(user.getOriginalCountry().getCountryName().toString())){
+        else if(countryName.equalsIgnoreCase(user.getOriginalCountry().getCountryName().toString())){
             return user;
         }
         else {
@@ -46,7 +46,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 
                 for (Country country1: countryList){
 
-                    if(countryName.equals(country1.getCountryName().toString()) && a > serviceProvider1.getId() ){
+                    if(countryName.equalsIgnoreCase(country1.getCountryName().toString()) && a > serviceProvider1.getId() ){
                         a=serviceProvider1.getId();
                         serviceProvider=serviceProvider1;
                         country=country1;
@@ -101,15 +101,15 @@ public class ConnectionServiceImpl implements ConnectionService {
             else {
                 String countryName = "";
 
-                if (cc.equals(CountryName.IND.toCode()))
+                if (cc.equalsIgnoreCase(CountryName.IND.toCode()))
                     countryName = CountryName.IND.toString();
-                if (cc.equals(CountryName.USA.toCode()))
+                if (cc.equalsIgnoreCase(CountryName.USA.toCode()))
                     countryName = CountryName.USA.toString();
-                if (cc.equals(CountryName.JPN.toCode()))
+                if (cc.equalsIgnoreCase(CountryName.JPN.toCode()))
                     countryName = CountryName.JPN.toString();
-                if (cc.equals(CountryName.CHI.toCode()))
+                if (cc.equalsIgnoreCase(CountryName.CHI.toCode()))
                     countryName = CountryName.CHI.toString();
-                if (cc.equals(CountryName.AUS.toCode()))
+                if (cc.equalsIgnoreCase(CountryName.AUS.toCode()))
                     countryName = CountryName.AUS.toString();
 
                 User user2 = connect(senderId,countryName);
