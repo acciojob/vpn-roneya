@@ -20,6 +20,7 @@ public class Connection {
     public Connection() {
     }
 
+
     public int getId() {
         return id;
     }
